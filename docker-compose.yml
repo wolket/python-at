@@ -1,7 +1,7 @@
 version: "3.6"
 services:
     pytest:
-      image: docker:5000/drvas/python:3.10-alpine
+      image: docker:5000/python:3.10-alpine
       user: "USER:USER"
       container_name: pytest_at
       working_dir: /DATA/
