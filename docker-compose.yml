@@ -1,0 +1,13 @@
+version: "3.6"
+services:
+    pytest:
+      image: docker:5000/drvas/python:3.10-alpine
+      user: "USER:USER"
+      container_name: pytest_at
+      working_dir: /DATA/
+      volumes: 
+        - ./:/DATA/
+      command: >
+          sh -c "python -m pytest --alluredir build/allure-results --junitxml=build/junit.xml --clean-alluredir && 
+                 cp settings/environment.xml ./build/allure-results/ && 
+                 cp settings/categories.json ./build/allure-results/"
